@@ -1,5 +1,6 @@
 base-devel
 feh
+noto-fonts
 picom
 wget
 xdg-user-dirs

@@ -72,7 +72,7 @@ main() {
         (cd $HOME/.config/dmenu; sudo make clean install)
     fi
 
-    "${GREEN}${BOLD}[*] ${RESET}Everything has been set up for you, ${GREEN}$USER${RESET}"
+    echo "${GREEN}${BOLD}[*] ${RESET}Everything has been set up for you, ${GREEN}$USER${RESET}"
 }
 
 main "@"

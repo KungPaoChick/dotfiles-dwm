@@ -33,9 +33,51 @@ main() {
     echo " ▀▀▀  ▀▀▀  ▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀     ▀▀▀▀     ▀▀▀▀    ▀▀    ▀▀  ▀▀▀▀▀▀▀▀  ▀▀"
     echo "${RESET}"
 
+    #
+    # choose video driver
+    #
+    echo "${BOLD}##########################################################################${RESET}
+
+${RED}1.) xf86-video-amdgpu     ${GREEN}2.) nvidia     ${BLUE}3.) xf86-video-intel${RESET}     4.) Skip
+
+${BOLD}##########################################################################${RESET}"
+    read -r -p "${YELLOW}${BOLD}[!] ${RESET}Choose your video card driver. ${YELLOW}(Default: 1)${RESET}: " vidri
+
+    #
+    #
+    # post prompt process
+    #
+    #
+
+    # video driver card case
+    case $vidri in
+    [1])
+            DRIVER='xf86-video-amdgpu xf86-video-ati xf86-video-fbdev'
+            ;;
+
+    [2])
+            DRIVER='nvidia nvidia-settings nvidia-utils'
+            ;;
+
+    [3])
+            DRIVER='xf86-video-intel xf86-video-nouveau'
+            ;;
+
+    [4])
+            DRIVER="xorg-xinit"
+            ;;
+
+    *)
+            DRIVER='xf86-video-amdgpu xf86-video-ati xf86-video-fbdev'
+            ;;
+    esac
+
     # full upgrade
     printf "${GREEN}${BOLD}[*] ${RESET}Performing System Upgrade and Installation...\n\n"
     sudo pacman -Syu --noconfirm
+
+    # installing selected video driver
+    sudo pacman -S --needed --noconfirm $DRIVER
 
     # install system packages
     sudo pacman -S --needed --noconfirm - < pkgs.txt

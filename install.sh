@@ -87,6 +87,9 @@ ${BOLD}#########################################################################
           dots/.fehbg \
           dots/.xinitrc $HOME
 
+    # copy scripts to /usr/local/bin
+    sudo cp -f scripts/* /usr/local/bin    
+
     # create user directories
     xdg-user-dirs-update
 

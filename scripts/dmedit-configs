@@ -1,0 +1,34 @@
+#!/bin/env bash
+
+# default terminal
+#DEF_TERM="alacritty --config-file $HOME/.config/qtile/alacritty/alacritty.yml"
+DEF_TERM="st"
+
+# default editor
+DEF_EDITOR="vim"
+
+
+# list of configs
+declare -a options=(
+"Feh (Wallpaper Background) - $HOME/.fehbg"
+"Picom - $HOME/.config/dwm/picom.conf"
+"Vim - $HOME/.vimrc"
+"dwm - $HOME/.config/dwm/config.h"
+"st - $HOME/.config/st/config.h"
+"surf - $HOME/.config/surf.config.h"
+)
+
+# creates the menu
+choice=$(printf '%s\n' "${options[@]}" | sort -u | dmenu -c -i -l 10 -fn 'monospace:size=12' -p 'Edit Config:')
+
+# opens the selected config file with vim
+# exits otherwise
+if [ "$choice" ]; then
+    cfg=$(printf '%s\n' "${choice}" | awk '{print $NF}')
+    $DEF_TERM -e $DEF_EDITOR "$cfg"
+
+else
+    echo "Exiting..."; exit 1
+fi
+
+

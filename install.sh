@@ -34,7 +34,6 @@ main() {
     echo "${RESET}"
 
     # full upgrade
-    clear
     printf "${GREEN}${BOLD}[*] ${RESET}Performing System Upgrade and Installation...\n\n"
     sudo pacman -Syu --noconfirm
 
@@ -57,21 +56,27 @@ main() {
         cp -rf configs/* $HOME/.config
     fi
 
-    # install dwm configs
+    # compiles dwm configs
     if [[ -d $HOME/.config/dwm ]]; then
         (cd $HOME/.config/dwm; sudo make clean install)
     fi
 
-    # install st configs
+    # compiles st configs
     if [[ -d $HOME/.config/st ]]; then
         (cd $HOME/.config/st; sudo make clean install)
     fi
 
-    # install dmenu configs
+    # compiles dmenu configs
     if [[ -d $HOME/.config/dmenu ]]; then
         (cd $HOME/.config/dmenu; sudo make clean install)
     fi
 
+    # compiles surf configs
+    if [[ -d $HOME/.config/surf ]]; then
+        (cd $HOME/.config/surf; sudo make clean install)
+    fi
+
+    clear
     echo "${GREEN}${BOLD}[*] ${RESET}Everything has been set up for you, ${GREEN}$USER${RESET}"
 }
 

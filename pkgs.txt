@@ -1,7 +1,9 @@
 base-devel
 feh
+gcr
 noto-fonts
 picom
+webkit2gtk
 wget
 xdg-user-dirs
 xorg

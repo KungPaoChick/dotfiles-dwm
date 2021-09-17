@@ -15,7 +15,7 @@ declare -a options=(
 "Vim - $HOME/.vimrc"
 "dwm - $HOME/.config/dwm/config.h"
 "st - $HOME/.config/st/config.h"
-"surf - $HOME/.config/surf.config.h"
+"surf - $HOME/.config/surf/config.h"
 )
 
 # creates the menu

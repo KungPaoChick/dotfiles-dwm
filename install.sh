@@ -105,20 +105,10 @@ ${BOLD}#########################################################################
         (cd $HOME/.config/dwm; sudo make clean install)
     fi
 
-    # compiles st configs
-    if [[ -d $HOME/.config/st ]]; then
-        (cd $HOME/.config/st; sudo make clean install)
-    fi
-
     # clones compiles dmenu configs
     if [[ ! -d $HOME/.config/dmenu ]]; then
         git clone https://github.com/KungPaoChick/dmenu-kungger.git $HOME/.config/dmenu
         (cd $HOME/.config/dmenu; sudo make clean install)
-    fi
-
-    # compiles surf configs
-    if [[ -d $HOME/.config/surf ]]; then
-        (cd $HOME/.config/surf; sudo make clean install)
     fi
 
     clear

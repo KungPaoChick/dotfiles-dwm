@@ -1,0 +1,3 @@
+#!/bin/sh
+
+feh --bg-scale --no-fehbg "/usr/share/backgrounds/archlinux/simple.png"

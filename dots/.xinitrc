@@ -48,6 +48,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+# custom
 picom --config $HOME/.config/dwm/picom.conf &
-bash $HOME/.fehbg
+bash $HOME/.config/dwm/.fehbg
 exec dwm

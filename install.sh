@@ -84,7 +84,6 @@ ${BOLD}#########################################################################
 
     # copy home dots
     cp -f dots/.vimrc \
-          dots/.fehbg \
           dots/.xinitrc $HOME
 
     # copy scripts to /usr/local/bin

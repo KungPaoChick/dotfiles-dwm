@@ -22,6 +22,11 @@ set_color() {
 main() {
     set_color
 
+    # make srcs folder
+    if [[ ! -d $HOME/.srcs ]]; then
+        mkdir -p $HOME/.srcs
+    fi
+
     reset
     echo "${BLUE}"
     echo "▄▄      ▄▄ ▄▄▄▄▄▄▄▄  ▄▄           ▄▄▄▄     ▄▄▄▄    ▄▄▄  ▄▄▄  ▄▄▄▄▄▄▄▄  ▄▄"; sleep 0.1
@@ -110,6 +115,24 @@ ${BOLD}#########################################################################
         git clone https://github.com/KungPaoChick/dmenu-kungger.git $HOME/.config/dmenu
         (cd $HOME/.config/dmenu; sudo make clean install)
     fi
+
+    # installs fish as default shell environmenti
+    if ! command -v fish &> /dev/null; then
+        sudo pacman -S --noconfirm fish
+        curl -L https://get.oh-my.fish/ > $HOME/.srcs/install.fish; chmod +x $HOME/.srcs/install.fish
+
+        clear
+        echo "${YELLOW}${BOLD}[!] ${RESET}oh-my-fish install script has been downloaded. You can execute the installer later on in ${YELLOW}$HOME/.srcs/install.fish${RESET}"; sleep 3
+        
+        # copies fish configurations
+        if [[ ! -d $HOME/.config/fish/ ]]; then
+            mkdir -p $HOME/.config/fish
+            cp -f shells/fish/config.fish $HOME/.config/fish/
+        else
+            cp -f shells/fish/config.fish $HOME/.config/fish/
+        fi
+    fi
+
 
     clear
     echo "${GREEN}${BOLD}[*] ${RESET}Everything has been set up for you, ${GREEN}$USER${RESET}"

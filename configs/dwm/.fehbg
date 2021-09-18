@@ -1,3 +1,3 @@
 #!/bin/sh
 
-feh --bg-scale --no-fehbg "/usr/share/backgrounds/archlinux/simple.png"
+feh --bg-scale --no-fehbg "$HOME/.config/dwm/wallpaper.png"

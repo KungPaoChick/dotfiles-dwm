@@ -110,8 +110,9 @@ ${BOLD}#########################################################################
         (cd $HOME/.config/st; sudo make clean install)
     fi
 
-    # compiles dmenu configs
-    if [[ -d $HOME/.config/dmenu ]]; then
+    # clones compiles dmenu configs
+    if [[ ! -d $HOME/.config/dmenu ]]; then
+        git clone https://github.com/KungPaoChick/dmenu-kungger.git $HOME/.config/dmenu
         (cd $HOME/.config/dmenu; sudo make clean install)
     fi
 

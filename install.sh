@@ -127,6 +127,7 @@ ${BOLD}#########################################################################
     # copy home dots
     cp -rf dots/.vimrc \
            dots/.dwm   \
+           dots/.dmrc  \
            dots/.xinitrc $HOME
 
     # copies all dwm configs to .config directory

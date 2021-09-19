@@ -78,6 +78,7 @@ ${BOLD}#########################################################################
     esac
 
     # full upgrade
+    clear
     printf "${GREEN}${BOLD}[*] ${RESET}Performing System Upgrade and Installation...\n\n"
     sudo pacman -Syu --noconfirm
 
@@ -88,8 +89,9 @@ ${BOLD}#########################################################################
     sudo pacman -S --needed --noconfirm - < pkgs.txt
 
     # copy home dots
-    cp -f dots/.vimrc \
-          dots/.xinitrc $HOME
+    cp -rf dots/.vimrc \
+           dots/.dwm   \
+           dots/.xinitrc $HOME
 
     # copy scripts to /usr/local/bin
     sudo cp -f scripts/* /usr/local/bin    
@@ -106,8 +108,8 @@ ${BOLD}#########################################################################
     fi
 
     # compiles dwm configs
-    if [[ -d $HOME/.config/dwm ]]; then
-        (cd $HOME/.config/dwm; sudo make clean install)
+    if [[ -d $HOME/.dwm ]]; then
+        (cd $HOME/.dwm; sudo make clean install)
     fi
 
     # clones compiles dmenu configs
@@ -132,7 +134,6 @@ ${BOLD}#########################################################################
             cp -f shells/fish/config.fish $HOME/.config/fish/
         fi
     fi
-
 
     clear
     echo "${GREEN}${BOLD}[*] ${RESET}Everything has been set up for you, ${GREEN}$USER${RESET}"

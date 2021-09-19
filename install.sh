@@ -166,6 +166,16 @@ ${BOLD}#########################################################################
         fi
     fi
 
+    # installs fonts for bar
+    FDIR="$HOME/.local/share/fonts"
+    echo -e "\n${GREEN}${BOLD}[*] ${RESET}Installing fonts..."
+    if [[ -d "$FDIR" ]]; then
+        cp -rf fonts/* "$FDIR"
+    else
+        mkdir -p "$FDIR"
+        cp -rf fonts/* "$FDIR"
+    fi
+
     clear
     echo "${GREEN}${BOLD}[*] ${RESET}Everything has been set up for you, ${GREEN}$USER${RESET}"
 }

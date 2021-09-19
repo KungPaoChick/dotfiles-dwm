@@ -1,14 +1,14 @@
 #!/bin/env bash
 
 # sets wallpaper using feh
-bash $HOME/.config/dwm/.fehbg
+bash $HOME/.dwm/.fehbg
 
 # kill if already running
 killall -9 picom xfce4-power-manager dunst
 
 # start compositor and power manager
 xfce4-power-manager &
-picom --config $HOME/.config/dwm/picom.conf &
+picom --config $HOME/.dwm/picom.conf &
 
 # start polkit
 if [[ ! `pidof xfce-polkit` ]]; then

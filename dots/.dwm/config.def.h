@@ -2,7 +2,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
-static const unsigned int gappx     = 5;        /* gaps between windows */
+static const unsigned int gappx     = 10;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -51,6 +51,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
+#define ALTKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -63,11 +64,13 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-p", "Run Command:", "-l", "10", "-c", "-i", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *j4dmenu[]  = { "j4-dmenu-desktop", "--no-generic", "--term='alacritty'", "--dmenu=dmenu -p 'Run App:' -c -i -l 10 -fn 'Source Code Pro Medium:size=12'", NULL };
 static const char *termcmd[]  = { "alacritty", "-e", "fish", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+    { ALTKEY,                       XK_F1,      spawn,          {.v = j4dmenu } },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = browsercmd } },

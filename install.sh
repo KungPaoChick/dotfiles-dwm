@@ -57,10 +57,33 @@ ${BOLD}#########################################################################
     read -r -p "${YELLOW}${BOLD}[!] ${RESET}Choose your video card driver. ${YELLOW}(Default: 1)${RESET}: " vidri
 
     #
+    # select an aur helper to install
+    #
+
+    HELPER="yay"
+    echo "${BOLD}####################${RESET}
+
+${RED}1.) yay     ${BLUE}2.) paru${RESET}
+
+${BOLD}####################${RESET}"
+    printf  "\n\n${YELLOW}${BOLD}[!] ${RESET}An AUR helper is essential to install required packages.\n"
+    read -r -p "${YELLOW}${BOLD}[!] ${RESET}Select an AUR helper. ${YELLOW}(Default: yay)${RESET}: " sel
+
+    #
     #
     # post prompt process
     #
     #
+    
+    # aur helper set to paru if sel var is eq to 2
+    if [ $sel -eq 2 ]; then
+        HELPER="paru"
+    fi
+
+    # clones specifies aur helper
+    if ! command -v $HELPER &> /dev/null; then
+        git clone https://aur.archlinux.org/$HELPER.git $HOME/.srcs/$HELPER
+    fi    
 
     # video driver card case
     case $vidri in
@@ -95,6 +118,15 @@ ${BOLD}#########################################################################
 
     # install system packages
     sudo pacman -S --needed --noconfirm - < pkgs.txt
+
+    # aur installer
+    if [[ -d $HOME/.srcs/$HELPER ]]; then
+        printf "\n\n${YELLOW}${BOLD}[!] ${RESET}We'll be installing ${GREEN}${BOLD}$HELPER${RESET} now.\n\n"
+        (cd $HOME/.srcs/$HELPER/; makepkg -si --noconfirm)
+    fi
+
+    # install aur packages
+    $HELPER -S --needed --noconfirm - < aur.txt
 
     # enable display manager
     sudo systemctl enable lxdm.service

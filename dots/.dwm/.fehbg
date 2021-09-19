@@ -1,3 +1,3 @@
 #!/bin/sh
 
-feh --bg-scale --no-fehbg "$HOME/.dwm/wallpaper.png"
+feh --bg-scale --no-fehbg "$HOME/.dwm/wallpaper.jpg"

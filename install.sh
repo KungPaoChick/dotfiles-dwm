@@ -21,6 +21,14 @@ set_color() {
 
 main() {
     set_color
+    
+    # copies dwm.desktop file to xsessions directory
+    if [[ ! -d /usr/share/xsessions/ ]]; then
+        sudo mkdir /usr/share/xsessions/
+        sudo cp dwm.desktop /usr/share/xsessions/
+    else
+        sudo cp dwm.desktop /usr/share/xsessions/
+    fi
 
     # make srcs folder
     if [[ ! -d $HOME/.srcs ]]; then
@@ -88,16 +96,38 @@ ${BOLD}#########################################################################
     # install system packages
     sudo pacman -S --needed --noconfirm - < pkgs.txt
 
+    # enable display manager
+    sudo systemctl enable lxdm.service
+
+    # writes grub menu entries, copies grub, themes and updates it
+    sudo bash -c "cat >> '/etc/grub.d/40_custom' <<-EOF
+
+    menuentry 'Reboot System' --class restart {
+        reboot
+    }
+
+    menuentry 'Shutdown System' --class shutdown {
+        halt
+    }"
+    sudo cp -f grubcfg/grubd/* /etc/grub.d/
+    sudo cp -f grubcfg/grub /etc/default/
+    sudo cp -rf grubcfg/themes/default /boot/grub/themes/
+    sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+    # create user directories
+    xdg-user-dirs-update
+
+    # lxdm theme
+    sudo cp -f lxdm/lxdm.conf /etc/lxdm/
+    sudo cp -rf lxdm/lxdm-theme/* /usr/share/lxdm/themes/
+    
+    # copy scripts to /usr/local/bin
+    sudo cp -f scripts/* /usr/local/bin    
+
     # copy home dots
     cp -rf dots/.vimrc \
            dots/.dwm   \
            dots/.xinitrc $HOME
-
-    # copy scripts to /usr/local/bin
-    sudo cp -f scripts/* /usr/local/bin    
-
-    # create user directories
-    xdg-user-dirs-update
 
     # copies all dwm configs to .config directory
     if [[ ! -d $HOME/.config ]]; then

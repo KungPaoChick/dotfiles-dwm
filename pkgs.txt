@@ -2,6 +2,7 @@ alacritty
 base-devel
 feh
 gcr
+lxdm-gtk3
 noto-fonts
 picom
 webkit2gtk

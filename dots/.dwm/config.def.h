@@ -13,15 +13,27 @@ static const int horizpadbar        = 2;        /* horizontal padding for status
 static const int vertpadbar         = 0;        /* vertical padding for statusbar */
 static const char *fonts[]          = { "Source Code Pro Medium:size=12", "Iosevka Nerd Font:size=12" };
 static const char dmenufont[]       = "Source Code Pro Medium:size=12";
+
+/* colorscheme */
+static const char norm_fg[] = "#7dc8d0";
+static const char norm_bg[] = "#0B0930";
+static const char norm_border[] = "#578c91";
+
+static const char sel_fg[] = "#7dc8d0";
+static const char sel_bg[] = "#F70159";
+static const char sel_border[] = "#7dc8d0";
+
+/* default colors */
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { norm_fg, norm_bg, norm_border },
+	[SchemeSel]  = { sel_fg, sel_bg,  sel_border  },
 };
 
 /* tagging */

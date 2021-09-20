@@ -75,8 +75,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-p", "Run Command:", "-l", "10", "-c", "-i", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *j4dmenu[]  = { "j4-dmenu-desktop", "--no-generic", "--term='alacritty'", "--dmenu=dmenu -p 'Run App:' -c -i -l 10 -fn 'Source Code Pro Medium:size=12'", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-c", "-l", "10", "-i", "-m", dmenumon, "-fn", dmenufont, "-nb", "#0B0930", "-nf", "#7dc8d0", "-sb", "#F70159", "-sf", "#7dc8d0", "-p", "Run Command:", NULL };
+static const char *j4dmenu[]  = { "j4-dmenu-desktop", "--no-generic", "--term='alacritty'", "--dmenu=dmenu -p 'Run App:' -c -i -l 10 -nb '#0B0930' -nf '#7dc8d0' -sb '#F70159' -sf '#7dc8d0' -fn 'Source Code Pro Medium:size=12'", NULL };
 static const char *termcmd[]  = { "alacritty", "-e", "fish", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 

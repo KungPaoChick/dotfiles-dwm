@@ -3,6 +3,9 @@
 # sets wallpaper using feh
 bash $HOME/.dwm/.fehbg
 
+# starts dwmblocks
+dwmblocks &
+
 # kill if already running
 killall -9 picom xfce4-power-manager dunst
 

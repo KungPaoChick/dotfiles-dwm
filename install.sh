@@ -175,6 +175,11 @@ ${BOLD}####################${RESET}"
         (cd $HOME/.dwm; sudo make clean install)
     fi
 
+    # compiles dwmblocks config
+    if [[ -d $HOME/.config/dwmblocks ]]; then
+        (cd $HOME/.config/dwmblocks; sudo make clean install)        
+    fi
+
     # clones compiles dmenu configs
     if [[ ! -d $HOME/.config/dmenu ]]; then
         git clone https://github.com/KungPaoChick/dmenu-kungger.git $HOME/.config/dmenu

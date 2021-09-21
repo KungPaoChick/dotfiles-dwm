@@ -1,0 +1,5 @@
+bash-pipes
+i3lock-color
+shell-color-scripts
+tty-clock
+xfce-polkit

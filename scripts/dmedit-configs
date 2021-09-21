@@ -22,6 +22,7 @@ declare -a options=(
 "dwmblocks - $HOME/.config/dwmblocks/blocks.def.h"
 "dmenu - $HOME/.config/dmenu/config.def.h"
 "Autostart - $HOME/.dwm/autostart.sh"
+"Fish - $HOME/.config/fish/config.fish"
 )
 
 # creates the menu

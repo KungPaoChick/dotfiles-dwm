@@ -1,4 +1,7 @@
+cowfortune
 firefox
 jq
+lolcat
+neofetch
 ranger
 ueberzug

@@ -7,7 +7,9 @@ static const Block blocks[] = {
 
 	{" ", "free -h | awk '/^Mem/ { print $3 }' | sed s/i//g",	3,		0},
 
-/*    {" ", "df -h / | awk '/dev/ { print $4 }' | sed s/i//g", 3, 0}, */
+    {" ", "df -h / | awk 'NR==2 { print $4 }' | sed s/i//g", 3, 0},
+    
+    {" ", "pacman -Q | wc -l", 5, 0},
 
 	{" ", "date '+%b %d-%Y'",					360,		0},
 

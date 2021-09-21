@@ -212,9 +212,20 @@ ${BOLD}####################${RESET}"
         mkdir -p "$FDIR"
         cp -rf fonts/* "$FDIR"
     fi
+    
+    # last orphan delete and cache delete
+    sudo pacman -Rns --noconfirm $(pacman -Qtdq); sudo pacman -Sc --noconfirm; $HELPER -Sc --noconfirm
 
+    # final
+    rm -rf $HOME/.srcs/$HELPER
     clear
-    echo "${GREEN}${BOLD}[*] ${RESET}Everything has been set up for you, ${GREEN}$USER${RESET}"
+
+    read -p "${GREEN}$USER!${RESET}, Reboot Now? ${YELLOW}(Required)${RESET} [Y/n] " reb
+    if [[ "$reb" == "" || "$reb" == "Y" || "$reb" == "y" ]]; then
+        sudo reboot now
+    else
+        printf "\n${RED}Abort!${RESET}\n"
+    fi
 }
 
 main "@"

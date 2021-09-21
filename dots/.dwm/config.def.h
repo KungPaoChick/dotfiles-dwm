@@ -79,10 +79,16 @@ static const char *dmenucmd[] = { "dmenu_run", "-c", "-l", "10", "-i", "-m", dme
 static const char *j4dmenu[]  = { "j4-dmenu-desktop", "--no-generic", "--term='alacritty'", "--dmenu=dmenu -p 'Run App:' -c -i -l 10 -nb '#0B0930' -nf '#7dc8d0' -sb '#F70159' -sf '#7dc8d0' -fn 'Source Code Pro Medium:size=12'", NULL };
 static const char *termcmd[]  = { "alacritty", "-e", "fish", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
+static const char *lockscreen[] = { "lock", NULL };
+static const char *editconfigs[] = { "dmedit-configs", NULL };
+static const char *quicklinks[] = { "dmquick-links", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-    { ALTKEY,                       XK_F1,      spawn,          {.v = j4dmenu } },
+    { MODKEY,                       XK_l,      spawn,          {.v = quicklinks } },
+    { MODKEY,                       XK_e,      spawn,          {.v = editconfigs } },
+    { ControlMask|ALTKEY,           XK_l,      spawn,          {.v = lockscreen } },
+    { ALTKEY,                       XK_F1,     spawn,          {.v = j4dmenu } },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = browsercmd } },

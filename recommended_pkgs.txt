@@ -3,9 +3,11 @@ dunst
 firefox
 jq
 lolcat
+lxappearance
 neofetch
 papirus-icon-theme
 python-pip
 ranger
 ueberzug
 viewnior
+xfce4-settings

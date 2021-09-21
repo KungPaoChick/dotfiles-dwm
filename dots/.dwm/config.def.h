@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#include <X11/XF86keysym.h>
+
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 10;        /* gaps between windows */
@@ -46,7 +48,9 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Alacritty",  NULL,       NULL,       1,            0,           -1 },
-	{ "firefox",  NULL,       NULL,       2,       0,           -1 },
+    { "Viewnior",   NULL,       NULL,       1,            1,           -1 },
+	{ "firefox",    NULL,       NULL,       2,            0,           -1 },
+    { "discord",    NULL,       NULL,       2,            0,           -1 },
 };
 
 /* layout(s) */
@@ -82,9 +86,23 @@ static const char *browsercmd[] = { "firefox", NULL };
 static const char *lockscreen[] = { "lock", NULL };
 static const char *editconfigs[] = { "dmedit-configs", NULL };
 static const char *quicklinks[] = { "dmquick-links", NULL };
+static const char *rangercmd[] = { "alacritty", "-e", "ranger", NULL };
+
+/* volume controls */
+static const char *upvol[]   = { "volume-up", NULL };
+static const char *downvol[] = { "volume-down", NULL };
+static const char *mutevol[] = { "amixer", "set", "Master", "toggle", NULL };
+
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+    { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = upvol } },
+    { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
+    { 0,                            XF86XK_AudioMute, spawn, {.v = mutevol } },
+  /*{ MODKEY,                       XK_equal, spawn, {.v = upvol } },
+    { MODKEY,                       XK_minus, spawn, {.v = downvol } },
+    { MODKEY,                       XK_0, spawn, {.v = mutevol } }, */
+    { MODKEY|ShiftMask,             XK_r,      spawn,          {.v = rangercmd } },
     { ALTKEY,                       XK_l,      spawn,          {.v = quicklinks } },
     { ALTKEY,                       XK_e,      spawn,          {.v = editconfigs } },
     { ControlMask|ALTKEY,           XK_l,      spawn,          {.v = lockscreen } },
@@ -107,15 +125,15 @@ static Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
+  /*{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
+	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } }, */
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
-	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
+  /*{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
+	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } }, */ 
+	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

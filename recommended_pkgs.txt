@@ -1,7 +1,11 @@
 cowfortune
+dunst
 firefox
 jq
 lolcat
 neofetch
+papirus-icon-theme
+python-pip
 ranger
 ueberzug
+viewnior

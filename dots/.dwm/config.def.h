@@ -85,8 +85,8 @@ static const char *quicklinks[] = { "dmquick-links", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-    { MODKEY,                       XK_l,      spawn,          {.v = quicklinks } },
-    { MODKEY,                       XK_e,      spawn,          {.v = editconfigs } },
+    { ALTKEY,                       XK_l,      spawn,          {.v = quicklinks } },
+    { ALTKEY,                       XK_e,      spawn,          {.v = editconfigs } },
     { ControlMask|ALTKEY,           XK_l,      spawn,          {.v = lockscreen } },
     { ALTKEY,                       XK_F1,     spawn,          {.v = j4dmenu } },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },

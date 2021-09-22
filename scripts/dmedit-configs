@@ -1,8 +1,7 @@
 #!/bin/env bash
 
 # default terminal
-#DEF_TERM="alacritty --config-file $HOME/.config/qtile/alacritty/alacritty.yml"
-DEF_TERM="alacritty"
+DEF_TERM="alacritty --config-file=$HOME/.dwm/alacritty/alacritty.yml"
 
 # default editor
 DEF_EDITOR="vim"

@@ -1,6 +1,8 @@
 cowfortune
 dunst
 firefox
+geany
+gimp
 jq
 lolcat
 lxappearance
@@ -8,6 +10,8 @@ neofetch
 papirus-icon-theme
 python-pip
 ranger
+thunar
+udiskie
 ueberzug
 viewnior
 xfce4-settings

@@ -51,6 +51,16 @@ static const Rule rules[] = {
     { "Viewnior",   NULL,       NULL,       1,            1,           -1 },
 	{ "firefox",    NULL,       NULL,       2,            0,           -1 },
     { "discord",    NULL,       NULL,       2,            0,           -1 },
+    { "Thunar",     NULL,       NULL,       1 << 2,       0,           -1 },
+    { "Pcmanfm",    NULL,       NULL,       1 << 2,       0,           -1 },
+    { "Geany",      NULL,       NULL,       1 << 3,       0,           -1 },
+    { "Code",       NULL,       NULL,       1 << 3,       0,           -1 },
+    { "Gimp-2.10",  NULL,       NULL,       1 << 4,       0,           -1 },
+    { "kdenlive",   NULL,       NULL,       1 << 4,       0,           -1 },
+    { "Spotify",    NULL,       NULL,       1 << 5,       0,           -1 },
+    { "Lxappearance",           NULL,       NULL,         1 << 6,       0            -1 },
+    { "Xfce4-settings-manager", NULL,       NULL,         1 << 6,       0,           -1 },
+
 };
 
 /* layout(s) */

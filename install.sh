@@ -157,9 +157,10 @@ ${BOLD}####################${RESET}"
     sudo cp -f scripts/* /usr/local/bin    
 
     # copy home dots
-    cp -rf dots/.vimrc \
-           dots/.dwm   \
-           dots/.dmrc  \
+    cp -rf dots/.vimrc     \
+           dots/.dwm       \
+           dots/.dmrc      \
+           dots/.gtkrc-2.0 \
            dots/.xinitrc $HOME
 
     # copies all dwm configs to .config directory

@@ -5,8 +5,8 @@
 
 ## Import files (Colors, Fonts, Etc)
 import:
-  - ~/.config/alacritty/colors.yml
-  - ~/.config/alacritty/fonts.yml
+  - ~/.dwm/alacritty/colors.yml
+  - ~/.dwm/alacritty/fonts.yml
 
 ## Set environment variables
 env:

@@ -91,12 +91,13 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-c", "-l", "10", "-i", "-m", dmenumon, "-fn", dmenufont, "-nb", "#0B0930", "-nf", "#7dc8d0", "-sb", "#F70159", "-sf", "#7dc8d0", "-p", "Run Command:", NULL };
 static const char *j4dmenu[]  = { "j4-dmenu-desktop", "--no-generic", "--term='alacritty'", "--dmenu=dmenu -p 'Run App:' -c -i -l 10 -nb '#0B0930' -nf '#7dc8d0' -sb '#F70159' -sf '#7dc8d0' -fn 'Source Code Pro Medium:size=12'", NULL };
-static const char *termcmd[]  = { "alacritty", "-e", "fish", NULL };
+static const char *termcmd[]  = { "alacritty", "--config-file=/home/kungger/.dwm/alacritty/alacritty.yml", "-e", "fish", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 static const char *lockscreen[] = { "lock", NULL };
 static const char *editconfigs[] = { "dmedit-configs", NULL };
 static const char *quicklinks[] = { "dmquick-links", NULL };
 static const char *rangercmd[] = { "alacritty", "-e", "ranger", NULL };
+static const char *thunarcmd[] = { "thunar", NULL };
 
 /* volume controls */
 static const char *upvol[]   = { "volume-up", NULL };
@@ -112,6 +113,7 @@ static Key keys[] = {
   /*{ MODKEY,                       XK_equal, spawn, {.v = upvol } },
     { MODKEY,                       XK_minus, spawn, {.v = downvol } },
     { MODKEY,                       XK_0, spawn, {.v = mutevol } }, */
+    { MODKEY|ShiftMask,             XK_f,      spawn,          {.v = thunarcmd } },
     { MODKEY|ShiftMask,             XK_r,      spawn,          {.v = rangercmd } },
     { ALTKEY,                       XK_l,      spawn,          {.v = quicklinks } },
     { ALTKEY,                       XK_e,      spawn,          {.v = editconfigs } },

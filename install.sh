@@ -162,6 +162,10 @@ ${BOLD}####################${RESET}"
            dots/.dmrc      \
            dots/.gtkrc-2.0 \
            dots/.xinitrc $HOME
+ 
+    # replaces username
+    sed -i "s/kungger/$USER/g" $HOME/.gtkrc-2.0
+    sed -i "s/kungger/$USER/g" $HOME/.dwm/config.def.h
 
     # copies all dwm configs to .config directory
     if [[ ! -d $HOME/.config ]]; then
